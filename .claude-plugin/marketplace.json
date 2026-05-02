@@ -1,0 +1,23 @@
+{
+    "name": "kundliai-marketplace",
+    "owner": {
+          "name": "Balaganapathi R",
+          "email": "r.balaganapathi@gmail.com",
+          "url": "https://kundliai.in"
+    },
+    "metadata": {
+          "description": "KundliAI plugins for Claude — authentic Vedic Jyotish, panchang, and Indian astrology tools.",
+          "version": "1.0.0"
+    },
+    "plugins": [
+          {
+                  "name": "kundli-ai",
+                  "source": "./kundli-ai",
+                  "description": "Generate authentic Vedic Kundli reports inside Claude — basic, detailed, and premium readings, plus Kundli Milan compatibility, monthly horoscopes, and daily rashifal. Multilingual: Tamil, Telugu, Kannada, Malayalam, Hindi, English.",
+                  "version": "0.2.0",
+                  "author": { "name": "Balaganapathi R" },
+                  "category": "lifestyle",
+                  "keywords": ["kundli", "vedic-astrology", "horoscope", "jyotish", "birth-chart", "kundli-milan", "india", "rashifal"]
+          }
+    ]
+}
