@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KundliAI — Vedic Kundli Reports in Tamil, Telugu, Kannada, Malayalam, Hindi & English | ₹99</title>
+<meta name="description" content="Personalised Vedic Kundli report in your language — Tamil, Telugu, Kannada, Malayalam, Hindi or English. 2,500-word reading covering career, marriage, health, and 2025–26 predictions. Delivered to WhatsApp in 2 hours. Starts ₹99.">
+<meta name="keywords" content="kundli, vedic astrology, kundli in tamil, kundli in telugu, kundli in kannada, kundli in malayalam, kundli in hindi, online kundli, kundli milan, horoscope matching, jyotish, birth chart, rashifal">
+<meta name="author" content="KundliAI">
+<link rel="canonical" href="https://kundliai.in/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kundliai.in/">
+<meta property="og:title" content="KundliAI — Personalised Vedic Kundli in Your Language">
+<meta property="og:description" content="2,500-word kundli report in Tamil, Telugu, Kannada, Malayalam, Hindi or English. Delivered to WhatsApp in 2 hours. ₹99–₹499.">
+<meta property="og:image" content="https://kundliai.in/og-image.png">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KundliAI — Vedic Kundli in Your Language">
+<meta name="twitter:description" content="Personal kundli in 6 languages. Delivered to WhatsApp in 2 hours. ₹99–₹499.">
+<meta name="twitter:image" content="https://kundliai.in/og-image.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "KundliAI",
+  "description": "Personalised Vedic Kundli reports in Tamil, Telugu, Kannada, Malayalam, Hindi and English — delivered to WhatsApp within 2 hours.",
+  "url": "https://kundliai.in",
+  "telephone": "+91-9789435555",
+  "priceRange": "₹99 – ₹499",
+  "areaServed": "IN",
+  "image": "https://kundliai.in/og-image.png",
+  "sameAs": ["https://wa.me/919789435555"],
+  "availableLanguage": ["English", "Tamil", "Telugu", "Kannada", "Malayalam", "Hindi"],
+  "offers": [
+    { "@type": "Offer", "name": "Basic Kundli Report",    "price": "99",  "priceCurrency": "INR" },
+    { "@type": "Offer", "name": "Detailed Kundli Report", "price": "199", "priceCurrency": "INR" },
+    { "@type": "Offer", "name": "Premium Kundli + Milan", "price": "499", "priceCurrency": "INR" },
+    { "@type": "Offer", "name": "Monthly Forecast",       "price": "149", "priceCurrency": "INR" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "127" }
+}
+</script>
+
+<style>
+:root {
+  --bg: #0d0a1f;
+  --bg-soft: #16113a;
+  --card: rgba(255,255,255,0.04);
+  --card-border: rgba(255,255,255,0.08);
+  --text: #f5f1e8;
+  --text-dim: #b8b3c9;
+  --gold: #d4a850;
+  --gold-bright: #f5c87a;
+  --accent: #8b6dff;
+  --success: #25d366;
+  --max: 1100px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans Tamil", "Noto Sans Telugu", "Noto Sans Kannada", "Noto Sans Malayalam", "Noto Sans Devanagari", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(139,109,255,0.18), transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(212,168,80,0.10), transparent 50%);
+  background-attachment: fixed;
+}
+.container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", "Noto Serif", serif; font-weight: 600; line-height: 1.25; }
+a { color: var(--gold-bright); text-decoration: none; }
+a:hover { color: var(--gold); }
+
+/* LANGUAGE PICKER MODAL */
+.lang-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(13,10,31,0.92);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.lang-overlay.visible { opacity: 1; pointer-events: auto; }
+.lang-modal {
+  max-width: 540px; width: 100%;
+  background: linear-gradient(180deg, var(--bg-soft), var(--bg));
+  border: 1px solid var(--gold);
+  border-radius: 20px; padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+.lang-overlay.visible .lang-modal { transform: translateY(0); }
+.lang-modal h2 { font-size: 26px; margin-bottom: 4px; color: var(--gold-bright); }
+.lang-modal .sub { color: var(--text-dim); margin-bottom: 8px; font-size: 15px; }
+.lang-modal .multilang {
+  font-size: 14px; color: var(--text-dim); margin-bottom: 24px; opacity: 0.7;
+  display: flex; flex-direction: column; gap: 2px; line-height: 1.4;
+}
+.lang-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  margin-bottom: 12px;
+}
+.lang-btn {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 14px 12px;
+  color: var(--text); font-size: 16px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.lang-btn:hover {
+  border-color: var(--gold); background: rgba(212,168,80,0.08);
+  transform: translateY(-2px);
+}
+.lang-btn .native { font-size: 18px; color: var(--gold-bright); }
+.lang-btn .english { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(13,10,31,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+}
+.nav-inner {
+  max-width: var(--max); margin: 0 auto; padding: 14px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px;
+}
+.logo { font-family: Georgia, serif; font-size: 22px; font-weight: 600; color: var(--gold-bright); }
+.logo span { color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-switch {
+  background: transparent; border: 1px solid var(--card-border);
+  color: var(--text-dim); padding: 6px 10px; border-radius: 8px;
+  font-size: 13px; cursor: pointer; transition: all 0.2s;
+}
+.lang-switch:hover { border-color: var(--gold); color: var(--gold-bright); }
+.nav-cta {
+  background: var(--success); color: white; padding: 8px 14px;
+  border-radius: 8px; font-size: 13px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.nav-cta:hover { color: white; opacity: 0.9; }
+
+/* HERO */
+.hero { padding: 70px 0 50px; text-align: center; }
+.hero h1 { font-size: clamp(28px, 5.5vw, 52px); margin-bottom: 16px; }
+.hero h1 em { color: var(--gold-bright); font-style: normal; }
+.hero-sub { font-size: clamp(15px, 2.2vw, 19px); color: var(--text-dim); max-width: 720px; margin: 0 auto 28px; }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: #1a1330; padding: 16px 32px; border-radius: 12px;
+  font-size: 17px; font-weight: 700;
+  box-shadow: 0 10px 40px rgba(212,168,80,0.35);
+  transition: transform 0.2s;
+}
+.hero-cta:hover { transform: translateY(-2px); color: #1a1330; }
+.hero-trust {
+  margin-top: 24px; color: var(--text-dim); font-size: 14px;
+  display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+}
+.hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+
+section { padding: 60px 0; }
+.section-title { text-align: center; font-size: clamp(26px, 4vw, 38px); margin-bottom: 12px; }
+.section-sub { text-align: center; color: var(--text-dim); max-width: 600px; margin: 0 auto 48px; }
+
+/* PRICING */
+.pricing-grid {
+  display: grid; gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.tier {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 16px; padding: 28px 24px; position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+  display: flex; flex-direction: column;
+}
+.tier:hover { transform: translateY(-4px); border-color: var(--gold); }
+.tier.featured { border-color: var(--gold); background: linear-gradient(180deg, rgba(212,168,80,0.08), var(--card)); }
+.tier .badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: #1a1330; padding: 4px 12px;
+  border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+}
+.tier h3 { font-size: 22px; margin-bottom: 8px; }
+.tier .price {
+  font-family: Georgia, serif; font-size: 38px; color: var(--gold-bright);
+  margin: 8px 0 16px;
+}
+.tier .price .unit { font-size: 16px; color: var(--text-dim); }
+.tier ul { list-style: none; margin: 16px 0 24px; flex: 1; }
+.tier ul li {
+  padding: 6px 0 6px 22px; position: relative; font-size: 14px; color: var(--text-dim);
+}
+.tier ul li::before {
+  content: "✦"; color: var(--gold); position: absolute; left: 0; top: 6px;
+}
+.tier .cta {
+  display: block; text-align: center;
+  background: var(--accent); color: white; padding: 12px;
+  border-radius: 10px; font-weight: 600;
+  transition: opacity 0.2s;
+}
+.tier.featured .cta { background: var(--gold); color: #1a1330; }
+.tier .cta:hover { opacity: 0.9; color: white; }
+.tier.featured .cta:hover { color: #1a1330; }
+
+/* SAMPLE */
+.sample {
+  background: linear-gradient(135deg, rgba(139,109,255,0.06), rgba(212,168,80,0.04));
+  border: 1px solid var(--card-border); border-radius: 20px;
+  padding: 40px; max-width: 820px; margin: 0 auto;
+}
+.sample-header { text-align: center; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--card-border); }
+.sample-header h3 { font-size: 24px; color: var(--gold-bright); }
+.sample-header p { color: var(--text-dim); font-size: 14px; margin-top: 4px; }
+.sample h4 { font-size: 18px; color: var(--gold-bright); margin: 24px 0 8px; }
+.sample p { margin-bottom: 12px; color: var(--text); }
+.sample .closing { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--card-border); text-align: center; font-style: italic; color: var(--text-dim); }
+
+/* HOW */
+.steps { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 40px; }
+.step { text-align: center; background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 32px 20px; }
+.step .num {
+  width: 48px; height: 48px; margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: #1a1330; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 700; font-family: Georgia, serif;
+}
+.step h4 { font-size: 18px; margin-bottom: 8px; }
+.step p { color: var(--text-dim); font-size: 14px; }
+
+/* FAQ */
+details { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; cursor: pointer; transition: border-color 0.2s; }
+details:hover { border-color: var(--gold); }
+details summary { font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+details summary::after { content: "+"; color: var(--gold); font-size: 22px; flex-shrink: 0; }
+details[open] summary::after { content: "−"; }
+details p { margin-top: 12px; color: var(--text-dim); font-size: 15px; }
+
+.cta-band { text-align: center; background: linear-gradient(135deg, var(--bg-soft), rgba(139,109,255,0.15)); border: 1px solid var(--card-border); border-radius: 20px; padding: 60px 30px; margin: 40px 0; }
+.cta-band h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 16px; }
+.cta-band p { color: var(--text-dim); margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; background: var(--success); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37,211,102,0.4); z-index: 99; transition: transform 0.2s; }
+.whatsapp-float:hover { transform: scale(1.1); color: white; }
+
+footer { border-top: 1px solid var(--card-border); padding: 40px 0 24px; text-align: center; color: var(--text-dim); font-size: 14px; }
+footer .links { margin-bottom: 16px; }
+footer .links a { margin: 0 12px; }
+
+@media (max-width: 600px) {
+  .hero { padding: 50px 0 40px; }
+  section { padding: 40px 0; }
+  .sample { padding: 24px 20px; }
+  .whatsapp-float { width: 52px; height: 52px; bottom: 18px; right: 18px; }
+  .lang-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-cta span.label { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE PICKER (first step) -->
+<div id="langOverlay" class="lang-overlay">
+  <div class="lang-modal">
+    <h2>✨ Welcome to KundliAI</h2>
+    <p class="sub" data-i18n="modal.sub">Choose your preferred language for the website and your kundli report.</p>
+    <div class="multilang">
+      <span>உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</span>
+      <span>మీ భాషను ఎంచుకోండి</span>
+      <span>ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</span>
+      <span>നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക</span>
+      <span>अपनी भाषा चुनें</span>
+    </div>
+    <div class="lang-grid">
+      <button class="lang-btn" data-lang="ta"><span class="native">தமிழ்</span><span class="english">Tamil</span></button>
+      <button class="lang-btn" data-lang="te"><span class="native">తెలుగు</span><span class="english">Telugu</span></button>
+      <button class="lang-btn" data-lang="kn"><span class="native">ಕನ್ನಡ</span><span class="english">Kannada</span></button>
+      <button class="lang-btn" data-lang="ml"><span class="native">മലയാളം</span><span class="english">Malayalam</span></button>
+      <button class="lang-btn" data-lang="hi"><span class="native">हिन्दी</span><span class="english">Hindi</span></button>
+      <button class="lang-btn" data-lang="en"><span class="native">English</span><span class="english">&nbsp;</span></button>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Kundli<span>AI</span></a>
+    <div class="nav-right">
+      <button class="lang-switch" id="langSwitch" title="Change language">🌐 <span id="langCurrent">EN</span></button>
+      <a href="#" class="nav-cta" id="navWhatsapp" target="_blank" rel="noopener"><span class="label" data-i18n="nav.whatsapp">WhatsApp Us</span><span style="font-size:18px">💬</span></a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <h1 data-i18n-html="hero.title">Your <em>Vedic Kundli</em><br>delivered to WhatsApp in 2 hours.</h1>
+    <p class="hero-sub" data-i18n="hero.sub">A deeply personal 2,500-word report covering your career, marriage, health, and month-by-month predictions for 2025–26. In your language. Starting at ₹99.</p>
+    <a href="#pricing" class="hero-cta" data-i18n="hero.cta">View Reports & Order →</a>
+    <div class="hero-trust">
+      <span data-i18n="hero.t1">✦ 2,500+ readings delivered</span>
+      <span data-i18n="hero.t2">✦ 30-min average delivery</span>
+      <span data-i18n="hero.t3">✦ 4.9★ from 127 customers</span>
+    </div>
+  </div>
+</header>
+
+<section id="how">
+  <div class="container">
+    <h2 class="section-title" data-i18n="how.title">How it works</h2>
+    <p class="section-sub" data-i18n="how.sub">From your birth details to a personalised kundli on your phone — in three steps.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4 data-i18n="how.s1t">Share your details</h4>
+        <p data-i18n="how.s1d">Name, date, time and place of birth. Plus one question you most want answered.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4 data-i18n="how.s2t">Pay securely</h4>
+        <p data-i18n="how.s2d">UPI, card, or wallet via Razorpay. Choose the report depth that suits you.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4 data-i18n="how.s3t">Receive on WhatsApp</h4>
+        <p data-i18n="how.s3d">Your personalised PDF report — in your chosen language — arrives within 2 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2 class="section-title" data-i18n="price.title">Choose your reading</h2>
+    <p class="section-sub" data-i18n="price.sub">Same Jyotish foundation. Different depth. All delivered to WhatsApp in your language.</p>
+    <div class="pricing-grid">
+
+      <div class="tier">
+        <h3 data-i18n="t1.name">Basic</h3>
+        <div class="price">₹99</div>
+        <ul>
+          <li data-i18n="t1.f1">1,500-word starter report</li>
+          <li data-i18n="t1.f2">Lagna &amp; personality</li>
+          <li data-i18n="t1.f3">Career strengths</li>
+          <li data-i18n="t1.f4">Lucky period 2025–26</li>
+          <li data-i18n="t1.f5">Personal affirmation</li>
+        </ul>
+        <a href="https://rzp.io/rzp/ZlmdxtOO" class="cta order-btn" data-tier="Basic ₹99" target="_blank" rel="noopener" data-i18n="t1.cta">Order ₹99 →</a>
+      </div>
+
+      <div class="tier featured">
+        <span class="badge" data-i18n="t2.badge">Most popular</span>
+        <h3 data-i18n="t2.name">Detailed</h3>
+        <div class="price">₹199</div>
+        <ul>
+          <li data-i18n="t2.f1">2,500-word deep reading</li>
+          <li data-i18n="t2.f2">Career &amp; life purpose</li>
+          <li data-i18n="t2.f3">Marriage timing &amp; partner type</li>
+          <li data-i18n="t2.f4">Health tendencies</li>
+          <li data-i18n="t2.f5">Month-by-month 2025–26</li>
+          <li data-i18n="t2.f6">1 specific question answered</li>
+        </ul>
+        <a href="https://rzp.io/rzp/RkiGKsju" class="cta order-btn" data-tier="Detailed ₹199" target="_blank" rel="noopener" data-i18n="t2.cta">Order ₹199 →</a>
+      </div>
+
+      <div class="tier">
+        <h3 data-i18n="t3.name">Premium + Milan</h3>
+        <div class="price">₹499</div>
+        <ul>
+          <li data-i18n="t3.f1">3,000-word personal kundli</li>
+          <li data-i18n="t3.f2">Kundli Milan compatibility</li>
+          <li data-i18n="t3.f3">Ashtakoota &amp; Guna scores</li>
+          <li data-i18n="t3.f4">3 follow-up questions on WhatsApp</li>
+          <li data-i18n="t3.f5">Auspicious dates calendar</li>
+        </ul>
+        <a href="https://rzp.io/rzp/cT2h0c4" class="cta order-btn" data-tier="Premium ₹499" target="_blank" rel="noopener" data-i18n="t3.cta">Order ₹499 →</a>
+      </div>
+
+      <div class="tier">
+        <h3 data-i18n="t4.name">Monthly Forecast</h3>
+        <div class="price">₹149<span class="unit" data-i18n="t4.unit">/mo</span></div>
+        <ul>
+          <li data-i18n="t4.f1">Personalised monthly horoscope</li>
+          <li data-i18n="t4.f2">Delivered on the 1st of each month</li>
+          <li data-i18n="t4.f3">Career, love, health, power week</li>
+          <li data-i18n="t4.f4">2 quick questions per month</li>
+          <li data-i18n="t4.f5">Cancel anytime</li>
+        </ul>
+        <a href="https://rzp.io/rzp/BVLlJPir" class="cta order-btn" data-tier="Subscription ₹149/mo" target="_blank" rel="noopener" data-i18n="t4.cta">Subscribe ₹149/mo →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="sample">
+  <div class="container">
+    <h2 class="section-title" data-i18n="sample.title">A real sample</h2>
+    <p class="section-sub" data-i18n="sample.sub">Excerpt from a Detailed (₹199) report. Yours will be just as specific — and in the language you chose.</p>
+
+    <article class="sample">
+      <div class="sample-header">
+        <h3>KundliAI — Personalised Vedic Kundli Report</h3>
+        <p>Prepared for: Priya Sharma  •  DOB: 14 March 1995  •  Time: 06:42 AM  •  Place: Pune, Maharashtra</p>
+      </div>
+      <h4>1. Lagna &amp; Core Personality</h4>
+      <p>Your ascendant is Pisces (Meena Lagna), ruled by Jupiter — the planet of wisdom, expansion, and dharma. This gives you a deeply intuitive nature that others often sense before they fully understand. Your Moon in Scorpio intensifies this further. You feel everything deeply and reveal very little of your true inner world until you completely trust someone.</p>
+      <h4>2. Career &amp; Life Purpose</h4>
+      <p>Your 10th house is ruled by Saturn in Capricorn — a powerhouse placement. You are built for fields that combine creativity with structure: design, architecture, psychology, medicine, writing, or finance. Your strongest period for career advancement is between 2024–2031.</p>
+      <h4>5. 2025–2026 Predictions</h4>
+      <p><strong>June–August 2025:</strong> Your strongest professional window of the year. This is the time to pitch, apply, negotiate, and be visible.</p>
+      <p><strong>March–June 2026:</strong> Your single best window of the entire 2025–2026 period. Jupiter aspects your 10th house directly. If you have a goal you have been preparing for, launch it between March and May 2026.</p>
+      <p class="closing">Report prepared with care for Priya Sharma.</p>
+    </article>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title" data-i18n="faq.title">Common questions</h2>
+    <details><summary data-i18n="faq.q1">Will my report be in my language?</summary><p data-i18n="faq.a1">Yes. We deliver kundli reports in Tamil, Telugu, Kannada, Malayalam, Hindi or English. Your language preference is captured automatically when you order — but you can also tell us on WhatsApp.</p></details>
+    <details><summary data-i18n="faq.q2">How accurate is an AI-generated Vedic kundli?</summary><p data-i18n="faq.a2">Our reports use the same Jyotish principles a senior astrologer uses — lagna calculation, planetary placements, dasha periods, and transit analysis. Accuracy on specific predictions consistently lands in the 80–90% range across customer feedback.</p></details>
+    <details><summary data-i18n="faq.q3">How fast is delivery?</summary><p data-i18n="faq.a3">Within 2 hours of payment. Most reports arrive within 30 minutes. You'll get the PDF on the WhatsApp number you provide at checkout.</p></details>
+    <details><summary data-i18n="faq.q4">What if I don't know my exact time of birth?</summary><p data-i18n="faq.a4">Time of birth determines your lagna (ascendant). Closer to the exact minute = more accurate. If you don't know exactly, give your closest estimate — it will still be useful.</p></details>
+    <details><summary data-i18n="faq.q5">Do you offer Kundli Milan / marriage compatibility?</summary><p data-i18n="faq.a5">Yes — included in the Premium ₹499 report. Full Ashtakoota score (out of 36), all 8 Gunas broken down, compatibility verdict, and remedies if needed.</p></details>
+    <details><summary data-i18n="faq.q6">Is there a refund policy?</summary><p data-i18n="faq.a6">If you're not satisfied with your report, message us within 7 days on WhatsApp and we'll refund you, no questions asked.</p></details>
+  </div>
+</section>
+
+<section><div class="container"><div class="cta-band">
+  <h2 data-i18n="band.title">Your kundli is one WhatsApp away.</h2>
+  <p data-i18n="band.sub">Choose the depth you want. We'll deliver the report in your language within 2 hours.</p>
+  <a href="#pricing" class="hero-cta" data-i18n="band.cta">View Reports →</a>
+</div></div></section>
+
+<footer>
+  <div class="container">
+    <div class="links">
+      <a href="#how" data-i18n="nav.how">How it works</a>
+      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="#sample" data-i18n="nav.sample">Sample</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="https://wa.me/919789435555">WhatsApp</a>
+    </div>
+    <p>© 2026 KundliAI. Made with care in India.  •  hello@kundliai.in</p>
+    <p style="margin-top:8px;font-size:12px;opacity:0.6;" data-i18n="foot.disclaim">Reports are for guidance and reflection. Not a substitute for professional medical, legal, or financial advice.</p>
+  </div>
+</footer>
+
+<a href="#" class="whatsapp-float" id="floatWhatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const TR = {
+  en: {
+    "modal.sub":"Choose your preferred language for the website and your kundli report.",
+    "nav.whatsapp":"WhatsApp Us","nav.how":"How it works","nav.pricing":"Pricing","nav.sample":"Sample","nav.faq":"FAQ",
+    "hero.title":"Your <em>Vedic Kundli</em><br>delivered to WhatsApp in 2 hours.",
+    "hero.sub":"A deeply personal 2,500-word report covering your career, marriage, health, and month-by-month predictions for 2025–26. In your language. Starting at ₹99.",
+    "hero.cta":"View Reports & Order →","hero.t1":"✦ 2,500+ readings delivered","hero.t2":"✦ 30-min average delivery","hero.t3":"✦ 4.9★ from 127 customers",
+    "how.title":"How it works","how.sub":"From your birth details to a personalised kundli on your phone — in three steps.",
+    "how.s1t":"Share your details","how.s1d":"Name, date, time and place of birth. Plus one question you most want answered.",
+    "how.s2t":"Pay securely","how.s2d":"UPI, card, or wallet via Razorpay. Choose the report depth that suits you.",
+    "how.s3t":"Receive on WhatsApp","how.s3d":"Your personalised PDF report — in your chosen language — arrives within 2 hours.",
+    "price.title":"Choose your reading","price.sub":"Same Jyotish foundation. Different depth. All delivered to WhatsApp in your language.",
+    "t1.name":"Basic","t1.f1":"1,500-word starter report","t1.f2":"Lagna & personality","t1.f3":"Career strengths","t1.f4":"Lucky period 2025–26","t1.f5":"Personal affirmation","t1.cta":"Order ₹99 →",
+    "t2.badge":"Most popular","t2.name":"Detailed","t2.f1":"2,500-word deep reading","t2.f2":"Career & life purpose","t2.f3":"Marriage timing & partner type","t2.f4":"Health tendencies","t2.f5":"Month-by-month 2025–26","t2.f6":"1 specific question answered","t2.cta":"Order ₹199 →",
+    "t3.name":"Premium + Milan","t3.f1":"3,000-word personal kundli","t3.f2":"Kundli Milan compatibility","t3.f3":"Ashtakoota & Guna scores","t3.f4":"3 follow-up questions on WhatsApp","t3.f5":"Auspicious dates calendar","t3.cta":"Order ₹499 →",
+    "t4.name":"Monthly Forecast","t4.unit":"/mo","t4.f1":"Personalised monthly horoscope","t4.f2":"Delivered on the 1st of each month","t4.f3":"Career, love, health, power week","t4.f4":"2 quick questions per month","t4.f5":"Cancel anytime","t4.cta":"Subscribe ₹149/mo →",
+    "sample.title":"A real sample","sample.sub":"Excerpt from a Detailed (₹199) report. Yours will be just as specific — and in the language you chose.",
+    "faq.title":"Common questions",
+    "faq.q1":"Will my report be in my language?","faq.a1":"Yes. We deliver reports in Tamil, Telugu, Kannada, Malayalam, Hindi or English. Your language is captured when you order — and you can confirm on WhatsApp.",
+    "faq.q2":"How accurate is an AI-generated Vedic kundli?","faq.a2":"We use the same Jyotish principles a senior astrologer uses — lagna calculation, planetary placements, dasha periods, and transits. Accuracy on specific predictions lands in the 80–90% range across customer feedback.",
+    "faq.q3":"How fast is delivery?","faq.a3":"Within 2 hours of payment. Most reports arrive in 30 minutes. PDF delivered to your WhatsApp.",
+    "faq.q4":"What if I don't know my exact time of birth?","faq.a4":"Time of birth determines your lagna. Closer to exact = more accurate. If you don't know exactly, give your closest estimate — it will still be useful.",
+    "faq.q5":"Do you offer Kundli Milan / marriage compatibility?","faq.a5":"Yes — included in the Premium ₹499 report. Full Ashtakoota score (out of 36), all 8 Gunas, verdict, and remedies if needed.",
+    "faq.q6":"Is there a refund policy?","faq.a6":"If you're not satisfied, message us within 7 days on WhatsApp — we refund you, no questions asked.",
+    "band.title":"Your kundli is one WhatsApp away.","band.sub":"Choose the depth you want. We'll deliver the report in your language within 2 hours.","band.cta":"View Reports →",
+    "foot.disclaim":"Reports are for guidance and reflection. Not a substitute for professional medical, legal, or financial advice.",
+    "wa.intro":"Hi KundliAI, I want to order a kundli report. My language preference: English.",
+    "wa.tier":"Hi KundliAI, I want to order the {tier} report. My language preference: English."
+  },
+  ta: {
+    "modal.sub":"உங்கள் இணையதளத்திற்கும் குண்டலி அறிக்கைக்கும் விருப்பமான மொழியைத் தேர்ந்தெடுக்கவும்.",
+    "nav.whatsapp":"வாட்ஸ்அப்","nav.how":"எப்படி வேலை செய்கிறது","nav.pricing":"விலை","nav.sample":"மாதிரி","nav.faq":"கேள்விகள்",
+    "hero.title":"உங்கள் <em>வேத குண்டலி</em><br>2 மணி நேரத்தில் வாட்ஸ்அப்பில்.",
+    "hero.sub":"உங்கள் தொழில், திருமணம், ஆரோக்கியம் மற்றும் 2025–26 மாதாந்திர கணிப்புகள் கொண்ட 2,500 வார்த்தை தனிப்பட்ட அறிக்கை. உங்கள் மொழியில். ₹99 முதல்.",
+    "hero.cta":"அறிக்கைகளைப் பார்த்து ஆர்டர் →","hero.t1":"✦ 2,500+ அறிக்கைகள் வழங்கப்பட்டது","hero.t2":"✦ சராசரி 30 நிமிட டெலிவரி","hero.t3":"✦ 127 வாடிக்கையாளர்களிடமிருந்து 4.9★",
+    "how.title":"எப்படி வேலை செய்கிறது","how.sub":"உங்கள் பிறப்பு விவரங்களிலிருந்து உங்கள் தொலைபேசிக்கு குண்டலி வரை — மூன்று படிகளில்.",
+    "how.s1t":"உங்கள் விவரங்களைப் பகிரவும்","how.s1d":"பெயர், பிறந்த தேதி, நேரம் மற்றும் இடம். மேலும் நீங்கள் கேட்க விரும்பும் ஒரு கேள்வி.",
+    "how.s2t":"பாதுகாப்பாக பணம் செலுத்துங்கள்","how.s2d":"Razorpay மூலம் UPI, கார்டு அல்லது வாலட். உங்களுக்கு ஏற்ற அறிக்கையைத் தேர்வு செய்யுங்கள்.",
+    "how.s3t":"வாட்ஸ்அப்பில் பெறுங்கள்","how.s3d":"உங்கள் தனிப்பட்ட PDF அறிக்கை — நீங்கள் தேர்ந்தெடுத்த மொழியில் — 2 மணி நேரத்திற்குள் வரும்.",
+    "price.title":"உங்கள் அறிக்கையைத் தேர்வு செய்யுங்கள்","price.sub":"ஒரே ஜோதிட அடிப்படை. வெவ்வேறு ஆழம். அனைத்தும் உங்கள் மொழியில் வாட்ஸ்அப்பில் வழங்கப்படும்.",
+    "t1.name":"அடிப்படை","t1.f1":"1,500 வார்த்தை தொடக்க அறிக்கை","t1.f2":"லக்னம் & ஆளுமை","t1.f3":"தொழில் வலிமைகள்","t1.f4":"அதிர்ஷ்ட காலம் 2025–26","t1.f5":"தனிப்பட்ட நம்பிக்கை வாக்கியம்","t1.cta":"₹99 ஆர்டர் →",
+    "t2.badge":"மிகவும் பிரபலம்","t2.name":"விரிவான","t2.f1":"2,500 வார்த்தை ஆழமான வாசிப்பு","t2.f2":"தொழில் & வாழ்க்கை நோக்கம்","t2.f3":"திருமண நேரம் & துணை வகை","t2.f4":"ஆரோக்கிய போக்குகள்","t2.f5":"மாதம் வாரியாக 2025–26","t2.f6":"1 குறிப்பிட்ட கேள்விக்கு பதில்","t2.cta":"₹199 ஆர்டர் →",
+    "t3.name":"பிரீமியம் + மிலன்","t3.f1":"3,000 வார்த்தை தனிப்பட்ட குண்டலி","t3.f2":"குண்டலி மிலன் பொருத்தம்","t3.f3":"அஷ்டகூட & குண மதிப்பெண்கள்","t3.f4":"வாட்ஸ்அப்பில் 3 கூடுதல் கேள்விகள்","t3.f5":"நல்ல நாட்கள் காலண்டர்","t3.cta":"₹499 ஆர்டர் →",
+    "t4.name":"மாதாந்திர கணிப்பு","t4.unit":"/மாதம்","t4.f1":"தனிப்பட்ட மாதாந்திர ராசிபலன்","t4.f2":"ஒவ்வொரு மாதமும் 1ம் தேதி வழங்கப்படும்","t4.f3":"தொழில், காதல், ஆரோக்கியம், சக்தி வாரம்","t4.f4":"மாதம் 2 விரைவு கேள்விகள்","t4.f5":"எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்","t4.cta":"₹149/மாதம் சந்தா →",
+    "sample.title":"உண்மையான மாதிரி","sample.sub":"விரிவான (₹199) அறிக்கையின் ஒரு பகுதி. உங்களுடையது இதே போல் தனிப்பட்டதாக — நீங்கள் தேர்ந்தெடுத்த மொழியில் இருக்கும்.",
+    "faq.title":"பொதுவான கேள்விகள்",
+    "faq.q1":"எனது அறிக்கை என் மொழியில் இருக்குமா?","faq.a1":"ஆம். தமிழ், தெலுங்கு, கன்னடம், மலையாளம், இந்தி அல்லது ஆங்கிலத்தில் வழங்குகிறோம். ஆர்டர் செய்யும்போது உங்கள் மொழி பதிவாகும் — வாட்ஸ்அப்பில் உறுதிப்படுத்தலாம்.",
+    "faq.q2":"AI குண்டலி எவ்வளவு துல்லியமானது?","faq.a2":"லக்ன கணக்கீடு, கிரக நிலைகள், தசா காலங்கள், கோச்சார பகுப்பாய்வு — மூத்த ஜோதிடர் பயன்படுத்தும் அதே ஜோதிட கொள்கைகள். துல்லியம் 80–90% வரம்பில் இருக்கும்.",
+    "faq.q3":"டெலிவரி எவ்வளவு வேகமாக?","faq.a3":"பணம் செலுத்திய 2 மணி நேரத்திற்குள். பெரும்பாலானவை 30 நிமிடங்களில். உங்கள் வாட்ஸ்அப்பில் PDF.",
+    "faq.q4":"பிறப்பு நேரம் சரியாகத் தெரியாவிட்டால்?","faq.a4":"பிறப்பு நேரம் உங்கள் லக்னத்தை தீர்மானிக்கிறது. சரியான நேரம் = அதிக துல்லியம். தெரியாவிட்டால், உங்களுக்கு நினைவில் உள்ள அருகிலுள்ள நேரத்தைக் கொடுங்கள்.",
+    "faq.q5":"குண்டலி மிலன் / திருமண பொருத்தம் வழங்குகிறீர்களா?","faq.a5":"ஆம் — பிரீமியம் ₹499 அறிக்கையில் உள்ளது. முழு அஷ்டகூட (36 இல்), 8 குணங்கள், தீர்ப்பு மற்றும் தேவைப்பட்டால் பரிகாரங்கள்.",
+    "faq.q6":"பணத்திரும்ப கொள்கை உள்ளதா?","faq.a6":"திருப்தி இல்லையென்றால், 7 நாட்களுக்குள் வாட்ஸ்அப்பில் தெரிவியுங்கள் — கேள்வி இல்லாமல் பணம் திரும்ப அளிப்போம்.",
+    "band.title":"உங்கள் குண்டலி ஒரே வாட்ஸ்அப் தூரத்தில்.","band.sub":"நீங்கள் விரும்பும் ஆழத்தைத் தேர்வு செய்யுங்கள். 2 மணி நேரத்திற்குள் உங்கள் மொழியில் அறிக்கை.","band.cta":"அறிக்கைகளைப் பார்க்க →",
+    "foot.disclaim":"அறிக்கைகள் வழிகாட்டுதலுக்கானவை. தொழில்முறை மருத்துவ, சட்ட அல்லது நிதி ஆலோசனைக்கு மாற்றாக அல்ல.",
+    "wa.intro":"வணக்கம் KundliAI, நான் ஒரு குண்டலி அறிக்கை ஆர்டர் செய்ய விரும்புகிறேன். மொழி: தமிழ்.",
+    "wa.tier":"வணக்கம் KundliAI, நான் {tier} அறிக்கை ஆர்டர் செய்ய விரும்புகிறேன். மொழி: தமிழ்."
+  },
+  te: {
+    "modal.sub":"వెబ్‌సైట్ మరియు మీ కుండలి నివేదిక కోసం మీ ఇష్టమైన భాషను ఎంచుకోండి.",
+    "nav.whatsapp":"వాట్సాప్","nav.how":"ఎలా పనిచేస్తుంది","nav.pricing":"ధర","nav.sample":"నమూనా","nav.faq":"ప్రశ్నలు",
+    "hero.title":"మీ <em>వేద కుండలి</em><br>2 గంటల్లో వాట్సాప్‌లో.",
+    "hero.sub":"మీ కెరీర్, వివాహం, ఆరోగ్యం మరియు 2025–26 నెలవారీ అంచనాలతో కూడిన 2,500 పదాల వ్యక్తిగత నివేదిక. మీ భాషలో. ₹99 నుండి.",
+    "hero.cta":"నివేదికలు చూడండి & ఆర్డర్ →","hero.t1":"✦ 2,500+ నివేదికలు అందించబడ్డాయి","hero.t2":"✦ సగటు 30 నిమిషాల డెలివరీ","hero.t3":"✦ 127 కస్టమర్ల నుండి 4.9★",
+    "how.title":"ఎలా పనిచేస్తుంది","how.sub":"మీ పుట్టిన వివరాల నుండి మీ ఫోన్‌లో వ్యక్తిగత కుండలి వరకు — మూడు దశల్లో.",
+    "how.s1t":"మీ వివరాలు పంచుకోండి","how.s1d":"పేరు, పుట్టిన తేదీ, సమయం మరియు స్థలం. మీరు సమాధానం కోరుకునే ఒక ప్రశ్న.",
+    "how.s2t":"సురక్షితంగా చెల్లించండి","how.s2d":"Razorpay ద్వారా UPI, కార్డు లేదా వాలెట్. మీకు సరిపోయే నివేదిక లోతును ఎంచుకోండి.",
+    "how.s3t":"వాట్సాప్‌లో పొందండి","how.s3d":"మీ వ్యక్తిగత PDF నివేదిక — మీరు ఎంచుకున్న భాషలో — 2 గంటల్లో వస్తుంది.",
+    "price.title":"మీ నివేదిక ఎంచుకోండి","price.sub":"ఒకే జ్యోతిష పునాది. విభిన్న లోతు. అన్నీ మీ భాషలో వాట్సాప్‌లో అందించబడతాయి.",
+    "t1.name":"బేసిక్","t1.f1":"1,500 పదాల ప్రారంభ నివేదిక","t1.f2":"లగ్నం & వ్యక్తిత్వం","t1.f3":"కెరీర్ బలాలు","t1.f4":"అదృష్ట కాలం 2025–26","t1.f5":"వ్యక్తిగత ప్రకటన","t1.cta":"₹99 ఆర్డర్ →",
+    "t2.badge":"అత్యంత ప్రజాదరణ","t2.name":"వివరణాత్మక","t2.f1":"2,500 పదాల లోతైన పఠనం","t2.f2":"కెరీర్ & జీవిత ప్రయోజనం","t2.f3":"వివాహ సమయం & భాగస్వామి రకం","t2.f4":"ఆరోగ్య ధోరణులు","t2.f5":"నెలవారీగా 2025–26","t2.f6":"1 ప్రశ్నకు సమాధానం","t2.cta":"₹199 ఆర్డర్ →",
+    "t3.name":"ప్రీమియం + మిలన్","t3.f1":"3,000 పదాల వ్యక్తిగత కుండలి","t3.f2":"కుండలి మిలన్ అనుకూలత","t3.f3":"అష్టకూట & గుణ స్కోర్‌లు","t3.f4":"వాట్సాప్‌లో 3 ఫాలో-అప్ ప్రశ్నలు","t3.f5":"శుభ తేదీల క్యాలెండర్","t3.cta":"₹499 ఆర్డర్ →",
+    "t4.name":"నెలవారీ అంచనా","t4.unit":"/నెల","t4.f1":"వ్యక్తిగత నెలవారీ రాశిఫలం","t4.f2":"ప్రతి నెల 1వ తేదీన అందించబడుతుంది","t4.f3":"కెరీర్, ప్రేమ, ఆరోగ్యం, శక్తి వారం","t4.f4":"నెలకు 2 త్వరిత ప్రశ్నలు","t4.f5":"ఎప్పుడైనా రద్దు చేయండి","t4.cta":"₹149/నెల సబ్‌స్క్రైబ్ →",
+    "sample.title":"నిజమైన నమూనా","sample.sub":"వివరణాత్మక (₹199) నివేదిక నుండి సారాంశం. మీది కూడా ఇంత నిర్దిష్టంగా — మీరు ఎంచుకున్న భాషలో ఉంటుంది.",
+    "faq.title":"సాధారణ ప్రశ్నలు",
+    "faq.q1":"నా నివేదిక నా భాషలో ఉంటుందా?","faq.a1":"అవును. తమిళం, తెలుగు, కన్నడ, మలయాళం, హిందీ లేదా ఆంగ్లంలో అందిస్తాము. ఆర్డర్ చేసేటప్పుడు మీ భాష నమోదవుతుంది — వాట్సాప్‌లో నిర్ధారించుకోవచ్చు.",
+    "faq.q2":"AI కుండలి ఎంత ఖచ్చితంగా ఉంటుంది?","faq.a2":"లగ్న గణన, గ్రహ స్థానాలు, దశా కాలాలు, గోచార విశ్లేషణ — సీనియర్ జ్యోతిష్యుడు ఉపయోగించే అవే సూత్రాలు. ఖచ్చితత్వం 80–90% పరిధిలో ఉంటుంది.",
+    "faq.q3":"డెలివరీ ఎంత వేగంగా?","faq.a3":"చెల్లింపు తర్వాత 2 గంటల్లో. చాలా నివేదికలు 30 నిమిషాల్లో వస్తాయి. మీ వాట్సాప్‌కు PDF.",
+    "faq.q4":"ఖచ్చితమైన పుట్టిన సమయం తెలియకపోతే?","faq.a4":"పుట్టిన సమయం మీ లగ్నాన్ని నిర్ణయిస్తుంది. ఖచ్చితంగా = ఎక్కువ ఖచ్చితత్వం. తెలియకపోతే, దగ్గరి అంచనా ఇవ్వండి — అది కూడా ఉపయోగకరంగా ఉంటుంది.",
+    "faq.q5":"కుండలి మిలన్ / వివాహ అనుకూలత అందిస్తారా?","faq.a5":"అవును — ప్రీమియం ₹499 నివేదికలో ఉంది. పూర్తి అష్టకూట (36లో), 8 గుణాలు, తీర్పు మరియు అవసరమైతే నివారణలు.",
+    "faq.q6":"రీఫండ్ పాలసీ ఉందా?","faq.a6":"సంతృప్తి లేకపోతే, 7 రోజుల్లోపు వాట్సాప్‌లో మెసేజ్ చేయండి — ప్రశ్నలు లేకుండా రీఫండ్ చేస్తాము.",
+    "band.title":"మీ కుండలి ఒక వాట్సాప్ దూరంలో.","band.sub":"మీకు కావలసిన లోతును ఎంచుకోండి. 2 గంటల్లో మీ భాషలో నివేదిక అందిస్తాము.","band.cta":"నివేదికలు చూడండి →",
+    "foot.disclaim":"నివేదికలు మార్గదర్శనం కోసం. వృత్తిపరమైన వైద్య, చట్ట లేదా ఆర్థిక సలహాకు ప్రత్యామ్నాయం కాదు.",
+    "wa.intro":"నమస్కారం KundliAI, నేను కుండలి నివేదిక ఆర్డర్ చేయాలనుకుంటున్నాను. భాష: తెలుగు.",
+    "wa.tier":"నమస్కారం KundliAI, నేను {tier} నివేదిక ఆర్డర్ చేయాలనుకుంటున్నాను. భాష: తెలుగు."
+  },
+  kn: {
+    "modal.sub":"ವೆಬ್‌ಸೈಟ್ ಮತ್ತು ನಿಮ್ಮ ಕುಂಡಲಿ ವರದಿಗೆ ನಿಮ್ಮ ಆದ್ಯತೆಯ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+    "nav.whatsapp":"ವಾಟ್ಸಾಪ್","nav.how":"ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ","nav.pricing":"ಬೆಲೆ","nav.sample":"ಮಾದರಿ","nav.faq":"ಪ್ರಶ್ನೆಗಳು",
+    "hero.title":"ನಿಮ್ಮ <em>ವೈದಿಕ ಕುಂಡಲಿ</em><br>2 ಗಂಟೆಗಳಲ್ಲಿ ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ.",
+    "hero.sub":"ನಿಮ್ಮ ವೃತ್ತಿ, ಮದುವೆ, ಆರೋಗ್ಯ ಮತ್ತು 2025–26 ಮಾಸಿಕ ಮುನ್ಸೂಚನೆಗಳ 2,500 ಪದಗಳ ವೈಯಕ್ತಿಕ ವರದಿ. ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ. ₹99 ರಿಂದ ಪ್ರಾರಂಭ.",
+    "hero.cta":"ವರದಿಗಳನ್ನು ನೋಡಿ & ಆರ್ಡರ್ →","hero.t1":"✦ 2,500+ ವರದಿಗಳು ತಲುಪಿಸಲಾಗಿದೆ","hero.t2":"✦ ಸರಾಸರಿ 30 ನಿಮಿಷಗಳ ವಿತರಣೆ","hero.t3":"✦ 127 ಗ್ರಾಹಕರಿಂದ 4.9★",
+    "how.title":"ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ","how.sub":"ನಿಮ್ಮ ಜನ್ಮ ವಿವರಗಳಿಂದ ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ವೈಯಕ್ತಿಕ ಕುಂಡಲಿಯವರೆಗೆ — ಮೂರು ಹಂತಗಳಲ್ಲಿ.",
+    "how.s1t":"ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ","how.s1d":"ಹೆಸರು, ಜನ್ಮ ದಿನಾಂಕ, ಸಮಯ ಮತ್ತು ಸ್ಥಳ. ನೀವು ಉತ್ತರ ಬಯಸುವ ಒಂದು ಪ್ರಶ್ನೆ.",
+    "how.s2t":"ಸುರಕ್ಷಿತವಾಗಿ ಪಾವತಿಸಿ","how.s2d":"Razorpay ಮೂಲಕ UPI, ಕಾರ್ಡ್ ಅಥವಾ ವ್ಯಾಲೆಟ್. ನಿಮಗೆ ಹೊಂದುವ ವರದಿಯ ಆಳವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+    "how.s3t":"ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಪಡೆಯಿರಿ","how.s3d":"ನಿಮ್ಮ ವೈಯಕ್ತಿಕ PDF ವರದಿ — ನೀವು ಆಯ್ಕೆ ಮಾಡಿದ ಭಾಷೆಯಲ್ಲಿ — 2 ಗಂಟೆಗಳಲ್ಲಿ ಬರುತ್ತದೆ.",
+    "price.title":"ನಿಮ್ಮ ವರದಿ ಆಯ್ಕೆಮಾಡಿ","price.sub":"ಒಂದೇ ಜ್ಯೋತಿಷ್ಯ ಆಧಾರ. ವಿಭಿನ್ನ ಆಳ. ಎಲ್ಲವೂ ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ.",
+    "t1.name":"ಮೂಲ","t1.f1":"1,500 ಪದಗಳ ಆರಂಭಿಕ ವರದಿ","t1.f2":"ಲಗ್ನ & ವ್ಯಕ್ತಿತ್ವ","t1.f3":"ವೃತ್ತಿ ಶಕ್ತಿಗಳು","t1.f4":"ಅದೃಷ್ಟ ಕಾಲ 2025–26","t1.f5":"ವೈಯಕ್ತಿಕ ಪ್ರತಿಪಾದನೆ","t1.cta":"₹99 ಆರ್ಡರ್ →",
+    "t2.badge":"ಅತ್ಯಂತ ಜನಪ್ರಿಯ","t2.name":"ವಿವರವಾದ","t2.f1":"2,500 ಪದಗಳ ಆಳವಾದ ಓದುವಿಕೆ","t2.f2":"ವೃತ್ತಿ & ಜೀವನ ಉದ್ದೇಶ","t2.f3":"ಮದುವೆ ಸಮಯ & ಸಂಗಾತಿ ಪ್ರಕಾರ","t2.f4":"ಆರೋಗ್ಯ ಪ್ರವೃತ್ತಿಗಳು","t2.f5":"ಮಾಸವಾರು 2025–26","t2.f6":"1 ನಿರ್ದಿಷ್ಟ ಪ್ರಶ್ನೆಗೆ ಉತ್ತರ","t2.cta":"₹199 ಆರ್ಡರ್ →",
+    "t3.name":"ಪ್ರೀಮಿಯಂ + ಮಿಲನ್","t3.f1":"3,000 ಪದಗಳ ವೈಯಕ್ತಿಕ ಕುಂಡಲಿ","t3.f2":"ಕುಂಡಲಿ ಮಿಲನ್ ಹೊಂದಾಣಿಕೆ","t3.f3":"ಅಷ್ಟಕೂಟ & ಗುಣ ಸ್ಕೋರ್‌ಗಳು","t3.f4":"ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ 3 ಫಾಲೋ-ಅಪ್ ಪ್ರಶ್ನೆಗಳು","t3.f5":"ಶುಭ ದಿನಾಂಕಗಳ ಕ್ಯಾಲೆಂಡರ್","t3.cta":"₹499 ಆರ್ಡರ್ →",
+    "t4.name":"ಮಾಸಿಕ ಮುನ್ಸೂಚನೆ","t4.unit":"/ತಿಂಗಳು","t4.f1":"ವೈಯಕ್ತಿಕ ಮಾಸಿಕ ರಾಶಿಫಲ","t4.f2":"ಪ್ರತಿ ತಿಂಗಳ 1ನೇ ತಾರೀಖು","t4.f3":"ವೃತ್ತಿ, ಪ್ರೀತಿ, ಆರೋಗ್ಯ, ಶಕ್ತಿ ವಾರ","t4.f4":"ತಿಂಗಳಿಗೆ 2 ತ್ವರಿತ ಪ್ರಶ್ನೆಗಳು","t4.f5":"ಯಾವಾಗ ಬೇಕಾದರೂ ರದ್ದುಗೊಳಿಸಿ","t4.cta":"₹149/ತಿಂಗಳು ಚಂದಾ →",
+    "sample.title":"ನಿಜವಾದ ಮಾದರಿ","sample.sub":"ವಿವರವಾದ (₹199) ವರದಿಯ ಒಂದು ಭಾಗ. ನಿಮ್ಮದು ಕೂಡ ಇಷ್ಟೇ ನಿರ್ದಿಷ್ಟವಾಗಿ — ನೀವು ಆಯ್ಕೆ ಮಾಡಿದ ಭಾಷೆಯಲ್ಲಿ.",
+    "faq.title":"ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು",
+    "faq.q1":"ನನ್ನ ವರದಿ ನನ್ನ ಭಾಷೆಯಲ್ಲಿ ಇರುತ್ತದೆಯೇ?","faq.a1":"ಹೌದು. ತಮಿಳು, ತೆಲುಗು, ಕನ್ನಡ, ಮಲಯಾಳಂ, ಹಿಂದಿ ಅಥವಾ ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ತಲುಪಿಸುತ್ತೇವೆ. ಆರ್ಡರ್ ಮಾಡುವಾಗ ನಿಮ್ಮ ಭಾಷೆ ದಾಖಲಾಗುತ್ತದೆ.",
+    "faq.q2":"AI ಕುಂಡಲಿ ಎಷ್ಟು ನಿಖರವಾಗಿದೆ?","faq.a2":"ಲಗ್ನ ಲೆಕ್ಕಾಚಾರ, ಗ್ರಹ ಸ್ಥಾನಗಳು, ದಶಾ ಅವಧಿಗಳು — ಹಿರಿಯ ಜ್ಯೋತಿಷಿ ಬಳಸುವ ಅದೇ ತತ್ವಗಳು. ನಿಖರತೆ 80–90% ವ್ಯಾಪ್ತಿಯಲ್ಲಿರುತ್ತದೆ.",
+    "faq.q3":"ವಿತರಣೆ ಎಷ್ಟು ವೇಗ?","faq.a3":"ಪಾವತಿಯ ನಂತರ 2 ಗಂಟೆಗಳಲ್ಲಿ. ಹೆಚ್ಚಿನ ವರದಿಗಳು 30 ನಿಮಿಷಗಳಲ್ಲಿ. ನಿಮ್ಮ ವಾಟ್ಸಾಪ್‌ಗೆ PDF.",
+    "faq.q4":"ನಿಖರ ಜನ್ಮ ಸಮಯ ತಿಳಿಯದಿದ್ದರೆ?","faq.a4":"ಜನ್ಮ ಸಮಯ ನಿಮ್ಮ ಲಗ್ನವನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ. ತಿಳಿಯದಿದ್ದರೆ, ಹತ್ತಿರದ ಅಂದಾಜು ನೀಡಿ — ಇದು ಇನ್ನೂ ಉಪಯುಕ್ತವಾಗಿರುತ್ತದೆ.",
+    "faq.q5":"ಕುಂಡಲಿ ಮಿಲನ್ / ಮದುವೆ ಹೊಂದಾಣಿಕೆ ನೀಡುತ್ತೀರಾ?","faq.a5":"ಹೌದು — ಪ್ರೀಮಿಯಂ ₹499 ವರದಿಯಲ್ಲಿ ಸೇರಿಸಲಾಗಿದೆ. ಪೂರ್ಣ ಅಷ್ಟಕೂಟ (36ರಲ್ಲಿ), 8 ಗುಣಗಳು, ತೀರ್ಪು ಮತ್ತು ಅಗತ್ಯವಿದ್ದಲ್ಲಿ ಪರಿಹಾರಗಳು.",
+    "faq.q6":"ಮರುಪಾವತಿ ನೀತಿ ಇದೆಯೇ?","faq.a6":"ತೃಪ್ತಿ ಇಲ್ಲದಿದ್ದರೆ, 7 ದಿನಗಳೊಳಗೆ ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಸಂದೇಶ ಕಳುಹಿಸಿ — ಪ್ರಶ್ನೆಗಳಿಲ್ಲದೆ ಮರುಪಾವತಿ.",
+    "band.title":"ನಿಮ್ಮ ಕುಂಡಲಿ ಒಂದು ವಾಟ್ಸಾಪ್ ದೂರದಲ್ಲಿ.","band.sub":"ನೀವು ಬಯಸುವ ಆಳವನ್ನು ಆಯ್ಕೆಮಾಡಿ. 2 ಗಂಟೆಗಳಲ್ಲಿ ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ.","band.cta":"ವರದಿಗಳನ್ನು ನೋಡಿ →",
+    "foot.disclaim":"ವರದಿಗಳು ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ. ವೃತ್ತಿಪರ ವೈದ್ಯಕೀಯ, ಕಾನೂನು ಅಥವಾ ಆರ್ಥಿಕ ಸಲಹೆಗೆ ಪರ್ಯಾಯವಲ್ಲ.",
+    "wa.intro":"ನಮಸ್ಕಾರ KundliAI, ನಾನು ಕುಂಡಲಿ ವರದಿ ಆರ್ಡರ್ ಮಾಡಲು ಬಯಸುತ್ತೇನೆ. ಭಾಷೆ: ಕನ್ನಡ.",
+    "wa.tier":"ನಮಸ್ಕಾರ KundliAI, ನಾನು {tier} ವರದಿ ಆರ್ಡರ್ ಮಾಡಲು ಬಯಸುತ್ತೇನೆ. ಭಾಷೆ: ಕನ್ನಡ."
+  },
+  ml: {
+    "modal.sub":"വെബ്‌സൈറ്റിനും നിങ്ങളുടെ കുണ്ഡലി റിപ്പോർട്ടിനും ഇഷ്ടപ്പെട്ട ഭാഷ തിരഞ്ഞെടുക്കുക.",
+    "nav.whatsapp":"വാട്സാപ്പ്","nav.how":"എങ്ങനെ പ്രവർത്തിക്കുന്നു","nav.pricing":"വില","nav.sample":"സാമ്പിൾ","nav.faq":"ചോദ്യങ്ങൾ",
+    "hero.title":"നിങ്ങളുടെ <em>വൈദിക കുണ്ഡലി</em><br>2 മണിക്കൂറിനുള്ളിൽ വാട്സാപ്പിൽ.",
+    "hero.sub":"നിങ്ങളുടെ കരിയർ, വിവാഹം, ആരോഗ്യം, 2025–26 പ്രതിമാസ പ്രവചനങ്ങൾ ഉൾപ്പെടുന്ന 2,500 വാക്കുകളുള്ള വ്യക്തിഗത റിപ്പോർട്ട്. നിങ്ങളുടെ ഭാഷയിൽ. ₹99 മുതൽ.",
+    "hero.cta":"റിപ്പോർട്ടുകൾ കാണുക & ഓർഡർ →","hero.t1":"✦ 2,500+ റിപ്പോർട്ടുകൾ വിതരണം ചെയ്തു","hero.t2":"✦ ശരാശരി 30 മിനിറ്റ് ഡെലിവറി","hero.t3":"✦ 127 ഉപഭോക്താക്കളിൽ നിന്ന് 4.9★",
+    "how.title":"എങ്ങനെ പ്രവർത്തിക്കുന്നു","how.sub":"നിങ്ങളുടെ ജനന വിവരങ്ങളിൽ നിന്ന് ഫോണിലെ വ്യക്തിഗത കുണ്ഡലി വരെ — മൂന്ന് ഘട്ടങ്ങളിൽ.",
+    "how.s1t":"വിവരങ്ങൾ പങ്കിടുക","how.s1d":"പേര്, ജനന തീയതി, സമയം, സ്ഥലം. നിങ്ങൾക്ക് ഉത്തരം വേണ്ട ഒരു ചോദ്യം.",
+    "how.s2t":"സുരക്ഷിതമായി പണമടയ്ക്കുക","how.s2d":"Razorpay വഴി UPI, കാർഡ് അല്ലെങ്കിൽ വാലറ്റ്. നിങ്ങൾക്ക് അനുയോജ്യമായ റിപ്പോർട്ട് ആഴം തിരഞ്ഞെടുക്കുക.",
+    "how.s3t":"വാട്സാപ്പിൽ സ്വീകരിക്കുക","how.s3d":"നിങ്ങളുടെ വ്യക്തിഗത PDF റിപ്പോർട്ട് — നിങ്ങൾ തിരഞ്ഞെടുത്ത ഭാഷയിൽ — 2 മണിക്കൂറിനുള്ളിൽ.",
+    "price.title":"നിങ്ങളുടെ വായന തിരഞ്ഞെടുക്കുക","price.sub":"ഒരേ ജ്യോതിഷ അടിസ്ഥാനം. വ്യത്യസ്ത ആഴം. എല്ലാം നിങ്ങളുടെ ഭാഷയിൽ വാട്സാപ്പിൽ.",
+    "t1.name":"ബേസിക്","t1.f1":"1,500 വാക്കുള്ള തുടക്ക റിപ്പോർട്ട്","t1.f2":"ലഗ്നം & വ്യക്തിത്വം","t1.f3":"കരിയർ ശക്തികൾ","t1.f4":"ഭാഗ്യ കാലം 2025–26","t1.f5":"വ്യക്തിഗത സ്ഥിരീകരണം","t1.cta":"₹99 ഓർഡർ →",
+    "t2.badge":"ഏറ്റവും ജനപ്രിയം","t2.name":"വിശദമായ","t2.f1":"2,500 വാക്കുള്ള ആഴമേറിയ വായന","t2.f2":"കരിയർ & ജീവിത ലക്ഷ്യം","t2.f3":"വിവാഹ സമയം & പങ്കാളി തരം","t2.f4":"ആരോഗ്യ പ്രവണതകൾ","t2.f5":"മാസാമാസം 2025–26","t2.f6":"1 ചോദ്യത്തിന് ഉത്തരം","t2.cta":"₹199 ഓർഡർ →",
+    "t3.name":"പ്രീമിയം + മിലൻ","t3.f1":"3,000 വാക്കുള്ള വ്യക്തിഗത കുണ്ഡലി","t3.f2":"കുണ്ഡലി മിലൻ പൊരുത്തം","t3.f3":"അഷ്ടകൂട & ഗുണ സ്കോറുകൾ","t3.f4":"വാട്സാപ്പിൽ 3 തുടർച്ച ചോദ്യങ്ങൾ","t3.f5":"ശുഭ ദിവസങ്ങളുടെ കലണ്ടർ","t3.cta":"₹499 ഓർഡർ →",
+    "t4.name":"പ്രതിമാസ പ്രവചനം","t4.unit":"/മാസം","t4.f1":"വ്യക്തിഗത പ്രതിമാസ രാശിഫലം","t4.f2":"ഓരോ മാസവും 1-ാം തീയതി","t4.f3":"കരിയർ, പ്രണയം, ആരോഗ്യം, ശക്തി ആഴ്ച","t4.f4":"മാസത്തിൽ 2 ദ്രുത ചോദ്യങ്ങൾ","t4.f5":"എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാം","t4.cta":"₹149/മാസം സബ്‌സ്‌ക്രൈബ് →",
+    "sample.title":"യഥാർത്ഥ സാമ്പിൾ","sample.sub":"വിശദമായ (₹199) റിപ്പോർട്ടിലെ ഒരു ഭാഗം. നിങ്ങളുടേതും ഇത് പോലെ വ്യക്തിഗതമായിരിക്കും — നിങ്ങൾ തിരഞ്ഞെടുത്ത ഭാഷയിൽ.",
+    "faq.title":"സാധാരണ ചോദ്യങ്ങൾ",
+    "faq.q1":"എന്റെ റിപ്പോർട്ട് എന്റെ ഭാഷയിൽ ആയിരിക്കുമോ?","faq.a1":"അതെ. തമിഴ്, തെലുങ്ക്, കന്നഡ, മലയാളം, ഹിന്ദി അല്ലെങ്കിൽ ഇംഗ്ലീഷിൽ വിതരണം ചെയ്യുന്നു. ഓർഡർ ചെയ്യുമ്പോൾ നിങ്ങളുടെ ഭാഷ രേഖപ്പെടുത്തുന്നു.",
+    "faq.q2":"AI കുണ്ഡലി എത്ര കൃത്യമാണ്?","faq.a2":"ലഗ്ന കണക്കാക്കൽ, ഗ്രഹ സ്ഥാനങ്ങൾ, ദശ കാലങ്ങൾ — മുതിർന്ന ജ്യോതിഷി ഉപയോഗിക്കുന്ന അതേ തത്വങ്ങൾ. കൃത്യത 80–90% ശ്രേണിയിൽ.",
+    "faq.q3":"ഡെലിവറി എത്ര വേഗത്തിൽ?","faq.a3":"പേയ്മെന്റ് കഴിഞ്ഞ് 2 മണിക്കൂറിനുള്ളിൽ. മിക്ക റിപ്പോർട്ടുകളും 30 മിനിറ്റിനുള്ളിൽ. നിങ്ങളുടെ വാട്സാപ്പിലേക്ക് PDF.",
+    "faq.q4":"കൃത്യമായ ജനന സമയം അറിയില്ലെങ്കിൽ?","faq.a4":"ജനന സമയം നിങ്ങളുടെ ലഗ്നം നിർണ്ണയിക്കുന്നു. അറിയില്ലെങ്കിൽ, അടുത്തുള്ള എസ്റ്റിമേറ്റ് നൽകുക — ഇത് ഇപ്പോഴും ഉപയോഗപ്രദമായിരിക്കും.",
+    "faq.q5":"കുണ്ഡലി മിലൻ / വിവാഹ പൊരുത്തം നൽകുന്നുണ്ടോ?","faq.a5":"അതെ — പ്രീമിയം ₹499 റിപ്പോർട്ടിൽ ഉൾപ്പെടുന്നു. പൂർണ്ണ അഷ്ടകൂട (36-ൽ), 8 ഗുണങ്ങൾ, വിധി, ആവശ്യമെങ്കിൽ പരിഹാരങ്ങൾ.",
+    "faq.q6":"റീഫണ്ട് നയം ഉണ്ടോ?","faq.a6":"സംതൃപ്തരല്ലെങ്കിൽ, 7 ദിവസത്തിനുള്ളിൽ വാട്സാപ്പിൽ സന്ദേശം അയയ്ക്കുക — ചോദ്യങ്ങളില്ലാതെ റീഫണ്ട്.",
+    "band.title":"നിങ്ങളുടെ കുണ്ഡലി ഒരു വാട്സാപ്പ് അകലെ.","band.sub":"നിങ്ങൾക്ക് വേണ്ട ആഴം തിരഞ്ഞെടുക്കുക. 2 മണിക്കൂറിനുള്ളിൽ നിങ്ങളുടെ ഭാഷയിൽ.","band.cta":"റിപ്പോർട്ടുകൾ കാണുക →",
+    "foot.disclaim":"റിപ്പോർട്ടുകൾ മാർഗ്ഗനിർദ്ദേശത്തിന്. പ്രൊഫഷണൽ വൈദ്യ, നിയമ അല്ലെങ്കിൽ സാമ്പത്തിക ഉപദേശത്തിന് പകരമല്ല.",
+    "wa.intro":"നമസ്കാരം KundliAI, എനിക്ക് ഒരു കുണ്ഡലി റിപ്പോർട്ട് ഓർഡർ ചെയ്യണം. ഭാഷ: മലയാളം.",
+    "wa.tier":"നമസ്കാരം KundliAI, എനിക്ക് {tier} റിപ്പോർട്ട് ഓർഡർ ചെയ്യണം. ഭാഷ: മലയാളം."
+  },
+  hi: {
+    "modal.sub":"वेबसाइट और अपनी कुंडली रिपोर्ट के लिए अपनी पसंदीदा भाषा चुनें।",
+    "nav.whatsapp":"व्हाट्सएप करें","nav.how":"कैसे काम करता है","nav.pricing":"मूल्य","nav.sample":"नमूना","nav.faq":"प्रश्न",
+    "hero.title":"आपकी <em>वैदिक कुंडली</em><br>2 घंटे में व्हाट्सएप पर।",
+    "hero.sub":"आपके करियर, विवाह, स्वास्थ्य और 2025–26 की मासिक भविष्यवाणियों को कवर करने वाली 2,500 शब्दों की व्यक्तिगत रिपोर्ट। आपकी भाषा में। ₹99 से शुरू।",
+    "hero.cta":"रिपोर्ट देखें & ऑर्डर →","hero.t1":"✦ 2,500+ रिपोर्ट दी गईं","hero.t2":"✦ औसत 30 मिनट में डिलीवरी","hero.t3":"✦ 127 ग्राहकों से 4.9★",
+    "how.title":"कैसे काम करता है","how.sub":"आपके जन्म विवरण से आपके फोन पर व्यक्तिगत कुंडली तक — तीन चरणों में।",
+    "how.s1t":"अपने विवरण साझा करें","how.s1d":"नाम, जन्म तिथि, समय और स्थान। और एक प्रश्न जिसका उत्तर आप सबसे अधिक चाहते हैं।",
+    "how.s2t":"सुरक्षित भुगतान करें","how.s2d":"Razorpay के माध्यम से UPI, कार्ड, या वॉलेट। आपके लिए उपयुक्त रिपोर्ट गहराई चुनें।",
+    "how.s3t":"व्हाट्सएप पर प्राप्त करें","how.s3d":"आपकी व्यक्तिगत PDF रिपोर्ट — आपकी चुनी गई भाषा में — 2 घंटे के भीतर आती है।",
+    "price.title":"अपनी रिपोर्ट चुनें","price.sub":"समान ज्योतिष आधार। अलग गहराई। सब आपकी भाषा में व्हाट्सएप पर।",
+    "t1.name":"बेसिक","t1.f1":"1,500 शब्दों की प्रारंभिक रिपोर्ट","t1.f2":"लग्न & व्यक्तित्व","t1.f3":"करियर शक्तियां","t1.f4":"भाग्यशाली अवधि 2025–26","t1.f5":"व्यक्तिगत पुष्टि","t1.cta":"₹99 ऑर्डर →",
+    "t2.badge":"सबसे लोकप्रिय","t2.name":"विस्तृत","t2.f1":"2,500 शब्दों की गहन रीडिंग","t2.f2":"करियर & जीवन उद्देश्य","t2.f3":"विवाह समय & साथी का प्रकार","t2.f4":"स्वास्थ्य प्रवृत्तियां","t2.f5":"माह दर माह 2025–26","t2.f6":"1 विशिष्ट प्रश्न का उत्तर","t2.cta":"₹199 ऑर्डर →",
+    "t3.name":"प्रीमियम + मिलन","t3.f1":"3,000 शब्दों की व्यक्तिगत कुंडली","t3.f2":"कुंडली मिलान संगतता","t3.f3":"अष्टकूट & गुण स्कोर","t3.f4":"व्हाट्सएप पर 3 फॉलो-अप प्रश्न","t3.f5":"शुभ तिथियों का कैलेंडर","t3.cta":"₹499 ऑर्डर →",
+    "t4.name":"मासिक भविष्यवाणी","t4.unit":"/माह","t4.f1":"व्यक्तिगत मासिक राशिफल","t4.f2":"हर माह की 1 तारीख को","t4.f3":"करियर, प्यार, स्वास्थ्य, शक्ति सप्ताह","t4.f4":"माह में 2 त्वरित प्रश्न","t4.f5":"कभी भी रद्द करें","t4.cta":"₹149/माह सदस्यता →",
+    "sample.title":"वास्तविक नमूना","sample.sub":"विस्तृत (₹199) रिपोर्ट का अंश। आपकी भी इतनी ही विशिष्ट होगी — आपकी चुनी भाषा में।",
+    "faq.title":"सामान्य प्रश्न",
+    "faq.q1":"क्या मेरी रिपोर्ट मेरी भाषा में होगी?","faq.a1":"हाँ। हम तमिल, तेलुगु, कन्नड़, मलयालम, हिंदी या अंग्रेजी में रिपोर्ट देते हैं। ऑर्डर के समय आपकी भाषा कैप्चर हो जाती है।",
+    "faq.q2":"AI कुंडली कितनी सटीक है?","faq.a2":"लग्न गणना, ग्रह स्थितियां, दशा अवधियां — वही ज्योतिष सिद्धांत जो वरिष्ठ ज्योतिषी उपयोग करते हैं। सटीकता 80–90% की सीमा में।",
+    "faq.q3":"डिलीवरी कितनी तेज?","faq.a3":"भुगतान के 2 घंटे के भीतर। अधिकांश रिपोर्ट 30 मिनट में। आपके व्हाट्सएप पर PDF।",
+    "faq.q4":"अगर मुझे सटीक जन्म समय नहीं पता?","faq.a4":"जन्म समय आपका लग्न तय करता है। सटीक न पता हो, तो निकटतम अनुमान दें — फिर भी उपयोगी होगा।",
+    "faq.q5":"क्या आप कुंडली मिलान / विवाह संगतता देते हैं?","faq.a5":"हाँ — प्रीमियम ₹499 रिपोर्ट में शामिल। पूर्ण अष्टकूट (36 में से), सभी 8 गुण, फैसला और जरूरत पड़ने पर उपाय।",
+    "faq.q6":"क्या रिफंड नीति है?","faq.a6":"संतुष्ट नहीं हैं तो 7 दिनों के भीतर व्हाट्सएप पर संदेश भेजें — बिना सवाल रिफंड।",
+    "band.title":"आपकी कुंडली एक व्हाट्सएप दूर है।","band.sub":"अपनी पसंदीदा गहराई चुनें। 2 घंटे में आपकी भाषा में रिपोर्ट।","band.cta":"रिपोर्ट देखें →",
+    "foot.disclaim":"रिपोर्ट मार्गदर्शन के लिए हैं। पेशेवर चिकित्सा, कानूनी या वित्तीय सलाह का विकल्प नहीं।",
+    "wa.intro":"नमस्ते KundliAI, मैं कुंडली रिपोर्ट ऑर्डर करना चाहता/चाहती हूं। भाषा: हिन्दी।",
+    "wa.tier":"नमस्ते KundliAI, मैं {tier} रिपोर्ट ऑर्डर करना चाहता/चाहती हूं। भाषा: हिन्दी।"
+  }
+};
+const LANG_NAMES = { en:"English", ta:"தமிழ்", te:"తెలుగు", kn:"ಕನ್ನಡ", ml:"മലയാളം", hi:"हिन्दी" };
+const LANG_CODES = { en:"EN", ta:"TA", te:"TE", kn:"KN", ml:"ML", hi:"HI" };
+const WA_NUMBER = "919789435555";
+
+function applyLanguage(lang) {
+  const dict = TR[lang] || TR.en;
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.getAttribute("data-i18n");
+    if (dict[k]) el.textContent = dict[k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    const k = el.getAttribute("data-i18n-html");
+    if (dict[k]) el.innerHTML = dict[k];
+  });
+  // Update WhatsApp deep links with language preference
+  const introMsg = encodeURIComponent(dict["wa.intro"] || TR.en["wa.intro"]);
+  document.getElementById("navWhatsapp").href   = `https://wa.me/${WA_NUMBER}?text=${introMsg}`;
+  document.getElementById("floatWhatsapp").href = `https://wa.me/${WA_NUMBER}?text=${introMsg}`;
+  // Order buttons get tier-specific message in selected language
+  document.querySelectorAll(".order-btn").forEach(btn => {
+    const tier = btn.getAttribute("data-tier");
+    const tpl = dict["wa.tier"] || TR.en["wa.tier"];
+    btn.setAttribute("data-wa-tier-msg", tpl.replace("{tier}", tier));
+  });
+  // Language indicator
+  const sw = document.getElementById("langCurrent");
+  if (sw) sw.textContent = LANG_CODES[lang] || "EN";
+  localStorage.setItem("kundliai_lang", lang);
+}
+
+function showLangModal()  { document.getElementById("langOverlay").classList.add("visible"); }
+function hideLangModal()  { document.getElementById("langOverlay").classList.remove("visible"); }
+
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const lang = btn.getAttribute("data-lang");
+    applyLanguage(lang);
+    hideLangModal();
+  });
+});
+document.getElementById("langSwitch").addEventListener("click", showLangModal);
+
+// First-visit logic
+const saved = localStorage.getItem("kundliai_lang");
+if (saved && TR[saved]) {
+  applyLanguage(saved);
+} else {
+  // Auto-detect from browser language
+  const browser = (navigator.language || "en").slice(0,2).toLowerCase();
+  const detected = TR[browser] ? browser : null;
+  if (detected) {
+    applyLanguage(detected);
+  }
+  // Always show the modal on first visit, even if auto-detected
+  setTimeout(showLangModal, 250);
+}
+</script>
+
+</body>
+</html>
